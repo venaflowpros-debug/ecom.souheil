@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import projectImage1 from "@/image/image 1 .png";
+import projectImage2 from "@/image/image 2.png";
+import projectImage3 from "@/image/IMAGE3 .png";
 
 const portfolios = [
   {
@@ -27,14 +30,14 @@ const portfolios = [
   }
 ];
 
-const imagesByPortfolio: Record<string, string[]> = {
-  rlp1: ["/rlp/rlp1/1.webp", "/rlp/rlp1/2.webp", "/rlp/rlp1/3.webp"],
-  rlp2: ["/rlp/rlp2/1.webp", "/rlp/rlp2/2.webp", "/rlp/rlp2/3.webp"],
-  rlp3: ["/rlp/rlp3/1.webp", "/rlp/rlp3/2.webp", "/rlp/rlp3/3.webp"]
+const imagesByPortfolio = {
+  rlp1: projectImage1,
+  rlp2: projectImage2,
+  rlp3: projectImage3
 };
 
 function PortfolioPreview({ id }: { id: string }) {
-  const src = imagesByPortfolio[id][0];
+  const src = imagesByPortfolio[id as keyof typeof imagesByPortfolio];
   return (
     <div className="relative h-[230px] w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111]">
       <Image
@@ -43,20 +46,7 @@ function PortfolioPreview({ id }: { id: string }) {
         width={1200}
         height={700}
         className="h-full w-full object-cover"
-        onError={(event) => {
-          const target = event.currentTarget;
-          target.style.display = "none";
-          const placeholder = target.parentElement?.querySelector(".portfolio-placeholder");
-          if (placeholder) {
-            (placeholder as HTMLElement).style.display = "grid";
-          }
-        }}
       />
-      <div className="portfolio-placeholder absolute inset-0 hidden place-content-center border border-dashed border-[#d4af37] bg-[#111] text-center text-sm text-[#9a9a9a]">
-        <p className="text-lg text-[#d4af37]">🖼️</p>
-        <p>Images du projet à venir</p>
-        <p className="text-xs text-[#777]">Dossier: /public/rlp/{id}/</p>
-      </div>
     </div>
   );
 }

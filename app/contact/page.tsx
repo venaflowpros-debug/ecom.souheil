@@ -2,7 +2,7 @@
 
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
-import { emailJsMissingMessage, isEmailJsConfigured } from "@/lib/emailjsReady";
+import { emailJsMissingMessage, getEmailJsConfig } from "@/lib/emailjsReady";
 
 type FormState = {
   fullName: string;
@@ -53,15 +53,12 @@ export default function ContactPage() {
     event.preventDefault();
     if (!form.rgpd) return;
 
-    if (!isEmailJsConfigured(true)) {
+    const emailConfig = getEmailJsConfig({ requireTemplate: true });
+    if (!emailConfig) {
       setError(emailJsMissingMessage);
       setSent(false);
       return;
     }
-
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
     setLoading(true);
     setError(null);
@@ -88,7 +85,7 @@ export default function ContactPage() {
     };
 
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      await emailjs.send(emailConfig.serviceId, emailConfig.templateId, templateParams, emailConfig.publicKey);
       setSent(true);
       setForm(initial);
     } catch {

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 import { saveReview } from "@/lib/reviews";
-import { emailJsMissingMessage, isEmailJsConfigured } from "@/lib/emailjsReady";
+import { emailJsMissingMessage, getEmailJsConfig } from "@/lib/emailjsReady";
 
 type ReviewForm = {
   firstname: string;
@@ -46,7 +46,8 @@ function AvisPageContent() {
       return;
     }
 
-    if (!isEmailJsConfigured(true)) {
+    const emailConfig = getEmailJsConfig({ requireTemplate: true });
+    if (!emailConfig) {
       setError(emailJsMissingMessage);
       return;
     }
@@ -55,15 +56,15 @@ function AvisPageContent() {
     setError(null);
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        emailConfig.serviceId,
+        emailConfig.templateId,
         {
           to_email: "venaflow.pros@gmail.com",
           from_name: form.firstname,
           from_email: "avis-client@souheilecom.local",
           message: `Nouvel avis de ${form.firstname} - ${form.rating}/5 : ${form.message}\nMétier/Secteur: ${form.sector}\nToken: ${token}`
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+        emailConfig.publicKey
       );
       saveReview({
         prenom: form.firstname,

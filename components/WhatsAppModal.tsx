@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import PhoneInput from "react-phone-number-input/input";
 import { getCountries, getCountryCallingCode } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { getEmailJsConfig } from "@/lib/emailjsReady";
 
 type Props = {
   open: boolean;
@@ -87,14 +88,20 @@ export default function WhatsAppModal({ open, source, onClose }: Props) {
       date: new Date().toLocaleString("fr-FR")
     };
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID?.trim() ?? "";
-    const templateId =
-      process.env.NEXT_PUBLIC_EMAILJS_WHATSAPP_TEMPLATE_ID?.trim() || "template_whatsapp";
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY?.trim() ?? "";
+    const emailConfig = getEmailJsConfig({
+      requireTemplate: false,
+      templateEnvKey: "NEXT_PUBLIC_EMAILJS_WHATSAPP_TEMPLATE_ID",
+      fallbackTemplateId: "template_whatsapp"
+    });
+    if (!emailConfig) {
+      finalizeLead(templateParams);
+      setLoading(false);
+      return;
+    }
 
-    if (serviceId && templateId && publicKey) {
+    if (emailConfig.serviceId && emailConfig.templateId && emailConfig.publicKey) {
       try {
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        await emailjs.send(emailConfig.serviceId, emailConfig.templateId, templateParams, emailConfig.publicKey);
       } catch {
         /* EmailJS en échec : on redirige quand même vers WhatsApp */
       }
