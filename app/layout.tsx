@@ -11,10 +11,19 @@ import { WhatsAppModalProvider } from "@/components/WhatsAppModalProvider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
+const metadataBase =
+  process.env.NEXT_PUBLIC_SITE_URL != null
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : process.env.VERCEL_URL != null
+      ? new URL(`https://${process.env.VERCEL_URL}`)
+      : new URL("http://localhost:3000");
+
+const siteOrigin = metadataBase.origin;
+
 export const metadata: Metadata = {
   title: "Souheil Ecom | Création de sites premium",
   description: "Souheil Ecom crée des sites sophistiqués avec SEO optimisé pour les commerçants.",
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase,
   alternates: { canonical: "/" },
   openGraph: {
     title: "Souheil Ecom",
@@ -42,7 +51,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 name: "Souheil Ecom",
                 email: "venaflow.pros@gmail.com",
                 sameAs: ["https://www.instagram.com/ecom.souheil/"],
-                url: "http://localhost:3000"
+                url: siteOrigin
               })
             }}
           />
