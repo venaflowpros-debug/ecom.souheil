@@ -7,17 +7,12 @@ import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { WhatsAppModalProvider } from "@/components/WhatsAppModalProvider";
+import { getSiteBaseUrl } from "@/lib/site-url";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
-const metadataBase =
-  process.env.NEXT_PUBLIC_SITE_URL != null
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : process.env.VERCEL_URL != null
-      ? new URL(`https://${process.env.VERCEL_URL}`)
-      : new URL("http://localhost:3000");
-
+const metadataBase = getSiteBaseUrl();
 const siteOrigin = metadataBase.origin;
 
 export const metadata: Metadata = {
