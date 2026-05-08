@@ -1,0 +1,231 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --fg: #f5f5f5;
+  --muted: #888888;
+  --accent: #d4af37;
+  --border: #222222;
+}
+
+.dark {
+  --bg: #060606;
+  --surface: #0f0f0f;
+  --fg: #f5f5f5;
+  --muted: #8e8e8e;
+}
+
+html,
+body {
+  background-color: #0a0a0a;
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  color: var(--fg);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+.section-pad {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+.premium-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.25);
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15);
+}
+
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+}
+
+.custom-cursor {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent);
+  border-radius: 9999px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: difference;
+}
+
+.wa-phone-wrap {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.wa-country-row {
+  display: flex;
+  position: relative;
+}
+
+.wa-country-select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ffd700;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 0.55rem 0.75rem;
+  outline: none;
+  text-align: left;
+}
+
+.wa-country-select:focus {
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.28);
+}
+
+.wa-country-list {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 40;
+  border-radius: 12px;
+  border: 1px solid #ffd700;
+  background-color: #1f1f1f;
+  padding: 0.3rem;
+}
+
+.wa-country-option {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.wa-country-option:hover {
+  background-color: #ffd700;
+  color: #0a0a0a;
+}
+
+.wa-country-option.is-selected {
+  background-color: #2a2a2a;
+}
+
+.wa-country-option.is-selected .wa-dial-code {
+  color: #ffd700;
+}
+
+.wa-country-name {
+  color: inherit;
+}
+
+.wa-dial-code {
+  color: #ffd700;
+}
+
+.wa-phone-input {
+  border-radius: 10px;
+  border: 1px solid #ffd700;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 0.55rem 0.75rem;
+}
+
+.wa-phone-input input {
+  width: 100%;
+  background: transparent;
+  color: #ffffff;
+  border: 0;
+  outline: none;
+}
+
+.wa-phone-input input::placeholder {
+  color: #a4a4a4;
+}
+
+.wa-country-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wa-country-list::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+.wa-country-list::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 999px;
+}
+
+@keyframes pulse-gold {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+}
+
+.whatsapp-fab {
+  animation: pulse-gold 2s infinite;
+}
