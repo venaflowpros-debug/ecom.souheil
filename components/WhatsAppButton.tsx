@@ -15,7 +15,7 @@ export default function WhatsAppButton({ source, label = "WhatsApp", className =
   return (
     <button
       onClick={() => openModal(source)}
-      className={`inline-flex items-center gap-2 rounded-2xl bg-[#25d366] px-4 py-3 text-sm font-semibold text-black transition hover:scale-105 ${className}`}
+      className={`inline-flex min-h-[44px] items-center gap-2 rounded-2xl bg-[#25d366] px-4 py-3 text-sm font-semibold text-black transition hover:scale-105 ${className}`}
       aria-label="Ouvrir WhatsApp"
       type="button"
     >

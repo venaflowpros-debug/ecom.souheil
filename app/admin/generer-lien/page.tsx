@@ -35,7 +35,7 @@ export default function GenererLienPage() {
         <button
           type="button"
           onClick={generate}
-          className="mt-4 rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.02]"
+          className="mt-4 min-h-[44px] rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.02]"
         >
           Générer le lien
         </button>

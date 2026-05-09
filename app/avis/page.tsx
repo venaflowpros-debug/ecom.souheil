@@ -92,7 +92,7 @@ function AvisPageContent() {
         </p>
         <Link
           href="/"
-          className="mt-8 inline-flex rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.02]"
+          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.02]"
         >
           Retour à l&apos;accueil
         </Link>
@@ -136,7 +136,7 @@ function AvisPageContent() {
                 key={star}
                 type="button"
                 onClick={() => update("rating", star)}
-                className={`text-2xl transition ${form.rating >= star ? "text-[#d4af37]" : "text-[#555]"}`}
+                className={`inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-2xl transition ${form.rating >= star ? "text-[#d4af37]" : "text-[#555]"}`}
                 aria-label={`Attribuer la note ${star}`}
               >
                 ★
@@ -154,7 +154,8 @@ function AvisPageContent() {
         />
         <button
           disabled={loading}
-          className="rounded-2xl bg-[#d4af37] px-6 py-3 font-semibold text-black transition hover:scale-[1.02] disabled:opacity-50"
+          type="submit"
+          className="min-h-[44px] rounded-2xl bg-[#d4af37] px-6 py-3 font-semibold text-black transition hover:scale-[1.02] disabled:opacity-50"
         >
           {loading ? "Envoi..." : "Envoyer mon avis"}
         </button>

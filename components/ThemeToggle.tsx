@@ -21,7 +21,12 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggle} className="rounded-full border border-[#2a2a2a] p-2 text-[#f5f5f5] hover:border-[#d4af37]" aria-label="Basculer le mode sombre">
+    <button
+      onClick={toggle}
+      type="button"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#2a2a2a] text-[#f5f5f5] hover:border-[#d4af37]"
+      aria-label="Basculer le mode sombre"
+    >
       {dark ? <Sun size={18} /> : <Moon size={18} />}
     </button>
   );

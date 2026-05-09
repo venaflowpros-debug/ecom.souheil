@@ -16,12 +16,19 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#222] bg-[#0a0a0a]/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link href="/" className="font-display text-2xl font-bold text-[#f5f5f5]">
+        <Link
+          href="/"
+          className="font-display flex min-h-[44px] items-center text-2xl font-bold text-[#f5f5f5]"
+        >
           Souheil Ecom
         </Link>
-        <nav className="hidden gap-5 md:flex">
+        <nav className="hidden gap-1 md:flex">
           {items.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-medium text-[#f5f5f5] transition hover:text-[#d4af37]">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="inline-flex min-h-[44px] items-center rounded-lg px-2 py-2 text-sm font-medium text-[#f5f5f5] transition hover:text-[#d4af37]"
+            >
               {item.label}
             </Link>
           ))}

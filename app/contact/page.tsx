@@ -101,14 +101,17 @@ export default function ContactPage() {
       <h1 className="mt-3 font-display text-5xl md:text-7xl">Décrivons ton projet ensemble</h1>
       <p className="mt-4 text-[#9c9c9c]">Réponse sous 24h. Sans engagement. Sans pression.</p>
       <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
-        <a href="mailto:venaflow.pros@gmail.com" className="text-[#f5f5f5] hover:text-[#d4af37]">
+        <a
+          href="mailto:venaflow.pros@gmail.com"
+          className="inline-flex min-h-[44px] items-center text-[#f5f5f5] hover:text-[#d4af37]"
+        >
           venaflow.pros@gmail.com
         </a>
         <a
           href="https://www.instagram.com/ecom.souheil/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#f5f5f5] hover:text-[#d4af37]"
+          className="inline-flex min-h-[44px] items-center text-[#f5f5f5] hover:text-[#d4af37]"
         >
           Instagram @ecom.souheil
         </a>
@@ -129,7 +132,13 @@ export default function ContactPage() {
         <select value={form.budget} onChange={(event) => update("budget", event.target.value)} className="rounded-2xl border border-[#2a2a2a] bg-[#0d0d0d] p-3"><option>&lt;300€</option><option>300-500€</option><option>500€+</option></select>
         <textarea required value={form.message} onChange={(event) => update("message", event.target.value)} placeholder="Message" className="min-h-36 rounded-2xl border border-[#2a2a2a] bg-[#0d0d0d] p-3 md:col-span-2" />
         <label className="flex items-center gap-2 text-sm text-[#bbb] md:col-span-2"><input type="checkbox" checked={form.rgpd} onChange={(event) => update("rgpd", event.target.checked)} />J&apos;accepte le traitement de mes données (RGPD)</label>
-        <button disabled={loading} className="rounded-2xl bg-[#d4af37] px-6 py-3 font-semibold text-black transition hover:scale-[1.02] disabled:opacity-50 md:col-span-2">{loading ? "Envoi..." : "Démarrer mon projet"}</button>
+        <button
+          disabled={loading}
+          type="submit"
+          className="min-h-[44px] rounded-2xl bg-[#d4af37] px-6 py-3 font-semibold text-black transition hover:scale-[1.02] disabled:opacity-50 md:col-span-2"
+        >
+          {loading ? "Envoi..." : "Démarrer mon projet"}
+        </button>
       </form>
     </section>
   );

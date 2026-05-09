@@ -8,6 +8,7 @@ import CustomCursor from "@/components/CustomCursor";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { WhatsAppModalProvider } from "@/components/WhatsAppModalProvider";
 import { getSiteBaseUrl } from "@/lib/site-url";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Footer />
           <WhatsAppFloat />
         </WhatsAppModalProvider>
+        <Analytics />
       </body>
     </html>
   );

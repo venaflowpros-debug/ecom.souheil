@@ -8,7 +8,7 @@ export default function FourZeroFourPage() {
       <p className="mt-4 text-[#cfcfcf]">La page demandée n&apos;existe pas ou a été déplacée.</p>
       <Link
         href="/"
-        className="mt-8 inline-flex rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.02]"
+        className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.02]"
       >
         Retour à l&apos;accueil
       </Link>

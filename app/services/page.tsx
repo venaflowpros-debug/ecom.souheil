@@ -106,7 +106,10 @@ export default function ServicesPage() {
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/contact">Demander un devis</Button>
-            <Link href="/maquette" className="rounded-2xl border border-[#2a2a2a] px-5 py-3 text-sm transition hover:border-[#d4af37]">
+            <Link
+              href="/maquette"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-[#2a2a2a] px-5 py-3 text-sm transition hover:border-[#d4af37]"
+            >
               Voir la démo interactive
             </Link>
           </div>
@@ -115,7 +118,14 @@ export default function ServicesPage() {
 
       <section className="mx-auto max-w-7xl px-4 pb-24">
         <div className="overflow-hidden rounded-3xl border border-[#222]">
-          <Image src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1800&auto=format&fit=crop" alt="Projet premium restaurant" width={1800} height={900} className="h-[260px] w-full object-cover md:h-[360px]" />
+          <Image
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1800&auto=format&fit=crop"
+            alt="Projet premium restaurant"
+            width={1800}
+            height={900}
+            sizes="100vw"
+            className="h-[260px] w-full object-cover md:h-[360px]"
+          />
         </div>
       </section>
     </div>

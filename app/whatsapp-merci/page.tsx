@@ -42,10 +42,16 @@ export default function WhatsAppMerciPage() {
         <p className="mt-6 text-sm text-[#888]">En attendant, vous pouvez aussi m&apos;écrire directement.</p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href={whatsappUrl || "#"} className="rounded-2xl bg-[#d4af37] px-6 py-3 font-semibold text-black transition hover:scale-[1.03]">
+          <a
+            href={whatsappUrl || "#"}
+            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl bg-[#d4af37] px-6 py-3 font-semibold text-black transition hover:scale-[1.03]"
+          >
             Ouvrir WhatsApp maintenant
           </a>
-          <Link href="/" className="rounded-2xl border border-[#2a2a2a] px-6 py-3 text-sm text-[#f5f5f5] transition hover:border-[#d4af37]">
+          <Link
+            href="/"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-[#2a2a2a] px-6 py-3 text-sm text-[#f5f5f5] transition hover:border-[#d4af37]"
+          >
             Retour à l&apos;accueil
           </Link>
         </div>

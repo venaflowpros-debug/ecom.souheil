@@ -7,7 +7,7 @@ type SafeImageProps = ImageProps & {
   fallbackSrc?: string;
 };
 
-export default function SafeImage({ src, fallbackSrc = "/references/image-1.png", alt, ...rest }: SafeImageProps) {
+export default function SafeImage({ src, fallbackSrc = "/references/portfolio-1.webp", alt, ...rest }: SafeImageProps) {
   const [currentSrc, setCurrentSrc] = useState(src);
 
   return (

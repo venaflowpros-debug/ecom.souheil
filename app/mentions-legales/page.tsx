@@ -8,7 +8,10 @@ export default function MentionsLegalesPage() {
         </p>
         <p>
           Email :{" "}
-          <a href="mailto:venaflow.pros@gmail.com" className="text-[#d4af37] hover:text-[#ffd700]">
+          <a
+            href="mailto:venaflow.pros@gmail.com"
+            className="inline-flex min-h-[44px] items-center text-[#d4af37] hover:text-[#ffd700]"
+          >
             venaflow.pros@gmail.com
           </a>
         </p>
@@ -18,7 +21,7 @@ export default function MentionsLegalesPage() {
             href="https://www.instagram.com/ecom.souheil/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#d4af37] hover:text-[#ffd700]"
+            className="inline-flex min-h-[44px] items-center text-[#d4af37] hover:text-[#ffd700]"
           >
             @ecom.souheil
           </a>

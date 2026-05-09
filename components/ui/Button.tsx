@@ -14,7 +14,7 @@ export default function Button({ href, children, variant = "primary" }: Props) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold transition duration-300 hover:scale-[1.03] glow-hover ${styles}`}
+      className={`inline-flex min-h-[44px] items-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold transition duration-300 hover:scale-[1.03] glow-hover ${styles}`}
     >
       {children}
       <ArrowRight size={16} />

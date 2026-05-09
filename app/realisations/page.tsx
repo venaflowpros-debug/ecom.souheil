@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-import projectImage1 from "@/image/image 1 .png";
-import projectImage2 from "@/image/image 2.png";
-import projectImage3 from "@/image/IMAGE3 .png";
+
+const imagesByPortfolio = {
+  rlp1: "/references/portfolio-1.webp",
+  rlp2: "/references/portfolio-2.webp",
+  rlp3: "/references/portfolio-3.webp"
+} as const;
 
 const portfolios = [
   {
@@ -30,11 +33,8 @@ const portfolios = [
   }
 ];
 
-const imagesByPortfolio = {
-  rlp1: projectImage1,
-  rlp2: projectImage2,
-  rlp3: projectImage3
-};
+const IMG_W = 1774;
+const IMG_H = 887;
 
 function PortfolioPreview({ id }: { id: string }) {
   const src = imagesByPortfolio[id as keyof typeof imagesByPortfolio];
@@ -43,9 +43,10 @@ function PortfolioPreview({ id }: { id: string }) {
       <Image
         src={src}
         alt={`Aperçu du projet ${id}`}
-        width={1200}
-        height={700}
+        width={IMG_W}
+        height={IMG_H}
         className="h-full w-full object-cover"
+        sizes="(max-width: 1024px) 100vw, 33vw"
       />
     </div>
   );
@@ -71,7 +72,7 @@ export default function RealisationsPage() {
               <p className="mt-3 text-sm text-[#9a9a9a]">{portfolio.description}</p>
               <button
                 type="button"
-                className="mt-5 inline-flex rounded-2xl border border-[#d4af37] px-4 py-2 text-sm text-[#f5f5f5] transition hover:bg-[#d4af37] hover:text-black"
+                className="mt-5 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-2xl border border-[#d4af37] px-4 py-2 text-sm text-[#f5f5f5] transition hover:bg-[#d4af37] hover:text-black"
               >
                 Voir le projet →
               </button>

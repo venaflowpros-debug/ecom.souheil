@@ -14,7 +14,12 @@ export default function MaquettePage() {
           <p className="text-xs uppercase tracking-[0.2em] text-[#888]">Démo savoir-faire</p>
           <h1 className="mt-3 font-display text-5xl md:text-7xl">Maquette interactive</h1>
         </div>
-        <button onClick={() => setMobile((v) => !v)} className="inline-flex items-center gap-2 rounded-full border border-[#2a2a2a] px-4 py-2 text-sm hover:border-[#d4af37]" aria-label="Basculer mobile desktop">
+        <button
+          onClick={() => setMobile((v) => !v)}
+          type="button"
+          className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[#2a2a2a] px-4 py-2 text-sm hover:border-[#d4af37]"
+          aria-label="Basculer mobile desktop"
+        >
           {mobile ? <><Monitor size={16} /> Desktop</> : <><Smartphone size={16} /> Mobile</>}
         </button>
       </div>

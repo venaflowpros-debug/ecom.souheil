@@ -111,8 +111,9 @@ export default function Home() {
             alt="Vitrine premium commerçant"
             width={1600}
             height={1200}
+            sizes="(max-width: 1024px) 100vw, 40vw"
             className="h-[460px] w-full object-cover"
-            priority
+            priority={true}
           />
         </motion.div>
       </section>
@@ -212,7 +213,10 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 pb-20">
         <div className="mb-6 flex items-end justify-between">
           <h2 className="font-display text-4xl md:text-6xl">Réalisations</h2>
-          <Link href="/realisations" className="text-sm text-[#d4af37]">
+          <Link
+            href="/realisations"
+            className="inline-flex min-h-[44px] items-center text-sm text-[#d4af37]"
+          >
             Voir toutes les réalisations
           </Link>
         </div>
@@ -223,6 +227,7 @@ export default function Home() {
               alt="Projet e-commerce premium"
               width={1800}
               height={1200}
+              sizes="(max-width: 1024px) 100vw, 65vw"
               loading="lazy"
               className="h-[380px] w-full object-cover"
             />
@@ -246,7 +251,10 @@ export default function Home() {
         <section className="mx-auto max-w-7xl px-4 pb-20">
           <div className="mb-6 flex items-end justify-between">
             <h2 className="font-display text-4xl md:text-6xl">Avis clients</h2>
-            <Link href="/avis?token=test123" className="text-sm text-[#d4af37]">
+            <Link
+              href="/avis?token=test123"
+              className="inline-flex min-h-[44px] items-center text-sm text-[#d4af37]"
+            >
               Laisser un avis (lien privé)
             </Link>
           </div>

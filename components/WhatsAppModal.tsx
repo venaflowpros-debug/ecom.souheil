@@ -127,7 +127,12 @@ export default function WhatsAppModal({ open, source, onClose }: Props) {
                 <h2 className="font-display text-3xl">Discutons de votre projet sur WhatsApp</h2>
                 <p className="mt-1 text-sm text-[#9c9c9c]">Laissez vos coordonnées, je vous recontacte sous 24h</p>
               </div>
-              <button onClick={onClose} aria-label="Fermer" className="rounded-full border border-[#3a3a3a] p-2 hover:border-[#d4af37]">
+              <button
+                onClick={onClose}
+                type="button"
+                aria-label="Fermer"
+                className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-[#3a3a3a] hover:border-[#d4af37]"
+              >
                 <X size={18} />
               </button>
             </div>
@@ -204,7 +209,11 @@ export default function WhatsAppModal({ open, source, onClose }: Props) {
 
               {error && <p className="text-sm text-red-400">{error}</p>}
 
-              <button disabled={loading} className="rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.01] disabled:opacity-60">
+              <button
+                disabled={loading}
+                type="submit"
+                className="min-h-[44px] rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-[1.01] disabled:opacity-60"
+              >
                 {loading ? "Envoi..." : "Envoyer"}
               </button>
             </form>
