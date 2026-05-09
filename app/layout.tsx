@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Souheil Ecom",
     description: "Sites premium, SEO optimisé, conversion réelle."
+  },
+  verification: {
+    google: "nGgfugJUSfvrOyj6fieBq3gYGffZXj2V3s6v51E67K4"
   }
 };
 
